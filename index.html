@@ -12,7 +12,7 @@
       name="keywords"
       content="qr code, qr codes, qrcodes, create qr code, qr code generator, create qrcodes, make a qr code, online qr code"
     />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/scan.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -42,6 +42,7 @@
       #spinner {
         display: none;
       }
+    
     </style>
     <title>Free Online QR Code Generator</title>
   </head>
@@ -97,8 +98,8 @@
         </div>
         <div class="w-full md:w-1/3 self-center">
           <img
-            class="w-1/2 m-auto mb-10 md:w-full"
-            src="img/qr-code.svg"
+            class="w-full m-auto mb-10 "
+            src="img/scan.png"
             alt=""
           />
         </div>
@@ -128,8 +129,12 @@
           <span class="sr-only">Loading...</span>
         </div>
 
-        <div id="qrcode" class="m-auto"></div>
+        <div id="qrcode" class="m-auto"></div>    
       </div>
+      <div
+         id="saveshare"
+         class="flex flex-col align-center m-auto p-4 md:flex-row "
+        >   
     </main>
   </body>
 </html>

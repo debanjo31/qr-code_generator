@@ -1,6 +1,5 @@
 const form = document.getElementById('generate-form');
 const qr = document.getElementById('qrcode');
-
 // Button submit
 const onGenerateSubmit = (e) => {
   e.preventDefault();
@@ -26,6 +25,7 @@ const onGenerateSubmit = (e) => {
         const saveUrl = qr.querySelector('img').src;
         // Create save button
         createSaveBtn(saveUrl);
+        createShareBtn(saveUrl);
       }, 50);
     }, 1000);
   }
@@ -44,8 +44,10 @@ const generateQRCode = (url, size) => {
 const clearUI = () => {
   qr.innerHTML = '';
   const saveBtn = document.getElementById('save-link');
+  const shareBtn = document.getElementById('share');
   if (saveBtn) {
     saveBtn.remove();
+    shareBtn.remove();
   }
 };
 
@@ -66,13 +68,32 @@ const createSaveBtn = (saveUrl) => {
   const link = document.createElement('a');
   link.id = 'save-link';
   link.classList =
-    'bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5';
+    'bg-red-500 hover:bg-red-700 text-white text-sm font-bold py-2 text-center rounded inline-block w-1/2 m-auto my-2 md:w-1/4';
   link.href = saveUrl;
   link.download = 'qrcode';
   link.innerHTML = 'Save Image';
-  document.getElementById('generated').appendChild(link);
+  document.getElementById('saveshare').appendChild(link);
+};
+
+const createShareBtn = () => {
+  const link = document.createElement('a');
+  link.id = 'share';
+  link.classList =
+    'bg-red-500 hover:bg-red-700 text-white text-sm text-center font-bold py-2 inline-block rounded w-1/2 m-auto my-2md:w-1/4';
+  link.innerHTML = 'Share Image';
+  document.getElementById('saveshare').appendChild(link);
+  link.addEventListener('click', shareQrCode);
 };
 
 hideSpinner();
 
 form.addEventListener('submit', onGenerateSubmit);
+const shareCode = document.getElementById('share');
+shareCode.addEventListener('click', shareQrCode);
+
+function shareQrCode(ev){
+  ev.preventDefault();
+  const src = document.getElementById('qrcode').getElementsByTagName('img').src
+  alert(src);
+}
+
