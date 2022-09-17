@@ -88,10 +88,8 @@ const createShareBtn = () => {
 hideSpinner();
 
 form.addEventListener('submit', onGenerateSubmit);
-const shareCode = document.getElementById('share');
-shareCode.addEventListener('click', shareQrCode);
 
-function shareQrCode(saveUrl){
+async function shareQrCode(saveUrl){
   // Convert dataUrl into blob using browser fetch API
   const blob = await (await fetch(saveUrl)).blob()
 
