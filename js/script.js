@@ -111,7 +111,7 @@ form.addEventListener('submit', onGenerateSubmit);
   // }
     // Get save url
     const saveUrl = qr.querySelector('img').src;
-    console.log(saveUrl)
+    alert(saveUrl)
 
 }
 
