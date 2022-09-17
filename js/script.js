@@ -71,7 +71,7 @@ const createSaveBtn = (saveUrl) => {
     'bg-red-500 hover:bg-red-700 text-white text-sm font-bold py-2 text-center rounded inline-block w-1/2 m-auto my-2 md:w-1/4';
   link.href = saveUrl;
   link.download = 'qrcode';
-  link.innerHTML = '<i class="material-icons align-middle">qr_code_2</i> Save ';
+  link.innerHTML = '<i class="material-icons align-middle">file_download</i> Save Image ';
   document.getElementById('saveshare').appendChild(link);
 };
 
@@ -80,7 +80,7 @@ const createShareBtn = () => {
   link.id = 'share';
   link.classList =
     'bg-red-500 hover:bg-red-700 text-white text-sm text-center font-bold py-2 inline-block rounded w-1/2 m-auto my-2 md:w-1/4';
-  link.innerHTML = 'Share Image';
+  link.innerHTML = '<i class="material-icons align-middle">share</i> Share Image ';
   document.getElementById('saveshare').appendChild(link);
   link.addEventListener('click', shareQrCode);
 };
