@@ -89,29 +89,30 @@ hideSpinner();
 
 form.addEventListener('submit', onGenerateSubmit);
 
- function shareQrCode(){
-  // // Convert dataUrl into blob using browser fetch API
-  // const blob = await (await fetch(saveUrl)).blob()
-
-  // // Create file form the blob
-  // const image = new File([blob], 'canvas.png', { type: blob.type })
-
-  // // Check if the device is able to share these files then open share dialog
-  // if (navigator.canShare && navigator.canShare({ files: [image] })) {
-  //   try {
-  //     await navigator.share({
-  //       files: [image],         // Array of files to share
-  //       title: 'Share Drawing'  // Share dialog title
-  //     })
-  //   } catch (error) {
-  //     console.log('Sharing failed!', error)
-  //   }
-  // } else {
-  //   console.log('This device does not support sharing files.')
-  // }
+ async function shareQrCode(){
+  
     // Get save url
-    const saveUrl = qr.querySelector('img').src;
-    alert(saveUrl)
+    const imageUrl = qr.querySelector('img').src;
+    
 
+    // Convert dataUrl into blob using browser fetch API
+    const blob = await (await fetch(imageUrl)).blob()
+
+    // Create file form the blob
+    const image = new File([blob], 'canvas.png', { type: blob.type })
+
+    // Check if the device is able to share these files then open share dialog
+    if (navigator.canShare && navigator.canShare({ files: [image] })) {
+      try {
+        await navigator.share({
+          files: [image],         // Array of files to share
+          title: 'Share Drawing'  // Share dialog title
+        })
+      } catch (error) {
+        console.log('Sharing failed!', error)
+      }
+    } else {
+      console.log('This device does not support sharing files.')
+    
 }
 
