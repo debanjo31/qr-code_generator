@@ -106,7 +106,7 @@ form.addEventListener('submit', onGenerateSubmit);
       try {
         await navigator.share({
           files: [image],         // Array of files to share
-          title: 'Share Drawing'  // Share dialog title
+          title: 'Share QR Code'  // Share dialog title
         })
       } catch (error) {
         console.log('Sharing failed!', error)
