@@ -71,7 +71,9 @@ const createSaveBtn = (saveUrl) => {
     'bg-red-500 hover:bg-red-700 text-white text-sm font-bold py-2 text-center rounded inline-block w-1/2 m-auto my-2 md:w-1/4';
   link.href = saveUrl;
   link.download = 'qrcode';
-  link.innerHTML = 'Save Image';
+  link.innerHTML = `i class="material-icons">
+  download
+  </i> Save Image`;
   document.getElementById('saveshare').appendChild(link);
 };
 
